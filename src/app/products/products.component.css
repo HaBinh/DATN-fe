@@ -1,0 +1,47 @@
+#main-product {
+  margin-top: 20px;
+}
+
+td div a {
+  cursor: pointer;
+}
+
+#edit{
+      margin-left: 10px;
+}
+.percent1 {
+  font-size: 15px;
+  color: red;
+}
+
+.m1 {
+  border-right: 1px solid darkgray;
+}
+
+.header-discount-table {
+  margin-top: 0px;
+}
+/* #grey{
+  color: grey;
+}
+#blue{
+  color: blue;
+}
+#light-green{
+  color: LightGreen;
+} */
+#f2 {
+  color: #dd7b00;
+}
+
+#f1 {
+  color: #406a28;
+}
+
+#f3 {
+  color: #282b2f;
+}
+.link-category{
+  float: right;
+}
+

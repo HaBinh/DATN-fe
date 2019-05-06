@@ -1,0 +1,299 @@
+<div id="main-product">
+  <page-header [title]="'newOrder.title' | translate " [smallTitle]="'newOrder.smallTitle' | translate"></page-header>
+  <div class="">
+    <div class="">
+      <!-- PAGE CONTENT BEGINS -->
+      <div class="widget-box">
+        <div class="widget-header widget-header-blue widget-header-flat">
+          <h4 class="widget-title lighter">{{ 'newOrder.smallTitle' | translate}} </h4>
+        </div>
+
+        <div class="widget-body">
+          <div class="widget-main">
+            <!-- CUSTOMER -->
+            <div class="row">
+              <div class="col-sm-6">
+                <div *ngIf="!customerSelected" class="search-area well well-sm">
+                  <div class="search-filter-header bg-primary">
+                    <h5 class="smaller no-margin-bottom">
+                      <i class="ace-icon fa fa-users light-green bigger-130">
+                      </i> {{ 'newOrder.newCustomer.title' | translate }}
+                    </h5>
+                  </div>
+                  <div class="space-8"></div>
+                  <div class="search-area">
+                    <div class="input-group stylish-input-group">
+                      <input type="text" autofocus
+                            class="form-control"
+                            placeholder="{{ 'newOrder.newCustomer.placeHolder' | translate }}"
+                            [(ngModel)]="termUser">
+                      <span class="input-group-addon">
+                        <button type="submit">
+                          <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                      </span>
+                    </div>
+                    <div class="results">
+                      <perfect-scrollbar class="scroller">
+                        <div [ngClass]="{'box-container' : termUser != ''}">
+                          <ng-container *ngFor="let customer of customers|filter:termUser">
+                            <ng-container *ngIf="termUser != ''">
+                              <button   type="button" class="list-group-item list-customers" (click)="selectCustomer(customer)">
+                                <strong>{{ customer.name }}</strong> - {{ customer.phone }}</button>
+                            </ng-container>
+                          </ng-container>
+                        </div>
+                      </perfect-scrollbar>
+                    </div>
+                  </div>
+                  <button class="btn btn-primary add-cus" (click)="modal.open()">
+                    {{ 'newOrder.newCustomer.orAddNew' | translate }}
+                    <i class="ace-icon fa fa-plus"></i>
+                  </button>
+                </div>
+                <div *ngIf="customerSelected">
+                  <div class="widget-box widget-color-green2">
+                    <div class="widget-header">
+                      <h5 class="widget-title bigger lighter">
+                        <i class="ace-icon fa fa-users"></i> {{ 'newOrder.newCustomer.selected' | translate }}
+                      </h5>
+                      <i class="ace-icon fa fa-times close-btn pointer" (click)="customerSelected=''"></i>
+                    </div>
+                    <div class="widget-body">
+                      <div class="widget-main">
+                        <dl class="dl-horizontal">
+                          <dt>{{ 'Table.name' | translate }}</dt>
+                          <dd>{{customerSelected?.name}}</dd>
+
+                          <dt>{{ 'Table.phone' | translate }}</dt>
+                          <dd>{{customerSelected?.phone}}</dd>
+
+                          <dt>{{ 'Table.email' | translate }}</dt>
+                          <dd>{{customerSelected?.email}}</dd>
+
+                          <dt>{{ 'Table.address' | translate }}</dt>
+                          <dd>{{customerSelected?.address}}</dd>
+                        </dl>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- start search products to add to table order -->
+              <div class="col-sm-6">
+                <div class="search-area well well-sm search-products">
+                  <div class="search-filter-header bg-primary">
+                    <h5 class="smaller no-margin-bottom">
+                      <i class="ace-icon fa fa-sliders light-green bigger-130">
+                      </i> {{ 'newOrder.product.title' | translate }}
+                    </h5>
+                  </div>
+                  <div class="space-8"></div>
+
+                  <div class="input-group stylish-input-group">
+                    <input type="text" class="form-control search" placeholder="{{ 'newOrder.product.placeHolder' | translate }}" [(ngModel)]="term">
+                    <span class="input-group-addon">
+                      <button type="submit">
+                        <span class="glyphicon glyphicon-search"></span>
+                      </button>
+                    </span>
+                  </div>
+                  <div class="results">
+                    <perfect-scrollbar class="scroller">
+                      <div [ngClass]="{'box-container' : term != ''}">
+                        <ng-container *ngFor="let product of products|pipeSearch:term; let i = index">
+                          <ng-container *ngIf="term != ''">
+                            <button *ngIf="i<=20" type="button" class="list-group-item list-products" (click)="selectStore(product)"
+                               [ngClass]="{'errors-quantity': product.quantity === 0 } ">
+                               {{ product.code }} - {{ product.name }}</button>
+                          </ng-container>
+                        </ng-container>
+                      </div>
+                    </perfect-scrollbar>
+                  </div>
+                </div>
+              </div>
+
+              <!-- end seach product -->
+            </div>
+            <!-- CUSTOMER -->
+            <hr>
+            <!-- PRODUCT -->
+            <div class="row">
+              <div class="col-sm-12 widget-container-col">
+                <div class="widget-box widget-color-blue" style="opacity: 1;">
+                  <div class="widget-header">
+                    <h5 class="widget-title bigger lighter">
+                      <i class="ace-icon fa fa-table">
+                      </i> {{ 'newOrder.smallTitle' | translate }}
+                    </h5>
+                  </div>
+                  <div class="widget-body" id="print-section">
+                    <div class="widget-main no-padding">
+                      <table id="simple-table" class="table table-striped table-bordered table-hover dataTable no-footer" cellspacing="0" width="100%">
+                        <thead>
+                          <tr>
+                            <th>{{ 'Table.code' | translate }}</th>
+                            <th>{{ 'Table.name' | translate }}</th>
+                            <th class="right-align">{{ 'Table.quantity' | translate }}</th>
+                            <th class="right-align">{{ 'Table.normalPrice' | translate }}</th>
+                            <th class="right-align">{{ 'Table.discountedRate' | translate }}</th>
+                            <th class="right-align">{{ 'Table.discountedPrice' | translate }}</th>
+                            <th>{{ 'Table.salePrice' | translate }}</th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let product of productsSelected ; let i = index" [ngClass]="{'errors-quantity': product.quantity < product.quantity_sell}">
+                            <td>{{ product.code }}</td>
+                            <td>{{ product.name }}</td>
+                            <td class="right-align">
+                               {{ product.quantity }} / 
+                              <input id="quantity" class="right-align" type="number" min="1" max="{{ product.quantity }}" value="1" [(ngModel)]="product.quantity_sell">
+                              
+                            </td>
+                            <td class="right-align">
+                              <input class="right-align" type="number" [(ngModel)]="product.sale_price">
+                            </td>
+                            <td class="right-align" >
+                              <!-- <select [(ngModel)]="product.discounted_rate">
+                                <option *ngFor="let r of rates" value="{{ r }}">
+                                  <ng-container *ngIf="r == 0">---</ng-container>
+                                  <ng-container *ngIf="r != 0">{{ r | percent }}</ng-container>
+                                </option>
+                              </select> -->
+                              <select [(ngModel)]="product.discounted_rate">
+                                <option *ngFor="let rate of this.rated[i]" [ngValue]="rate" selected="rate == product.discounted_rate">
+                                  <ng-container *ngIf="rate == 0">---</ng-container>
+                                  <ng-container *ngIf="rate != 0">{{ rate | percent }}</ng-container>
+                                </option>
+                              </select>
+                            </td>
+                            <td class="right-align">
+                               {{ product.sale_price * (1 - product.discounted_rate) | roundVnd | vnd}}
+                            </td>
+                            <td class="right-align">
+                              {{ sale_price(product) | roundVnd | vnd}}
+                            </td>
+                            <td>
+                              <button class="btn btn-xs btn-danger remove" tooltip="{{ 'tooltip.delete' | translate }}" (click)="removeInOrder(product)">
+                                <i class="ace-icon fa fa-trash-o bigger-120"></i>
+                              </button>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td colspan="6">
+                              <h6 class="text-center"><strong>{{ 'newOrder.product.grandTotal' | translate}}</strong></h6>
+                            </td>
+                            <!-- <td [ngClass]="{'line-through': getTotalDefault()!==getTotal() }" class="right-align">
+                              <h5>{{ getTotalDefault() | currency:'USD':true:'1.2-2'}}</h5>
+                            </td> -->
+                            <td id="total" colspan="2">
+                              <h5>{{ getTotal() | roundVnd | vnd}}</h5>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td colspan="6">
+                              <h6 class="text-center"><strong>{{ 'newOrder.product.pay' | translate}}</strong></h6>
+                            </td>
+                            <td>
+                              <input class="pull-left"
+                                    max="{{ getTotal() }}"
+                                    type="number" value={{paid()}}
+                                    id="customer-paid"
+                                    #customer_paid>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+                <hr>
+                <button class="btn btn-primary add-order" (click)="printQuot()">
+                  {{ 'newOrder.quot' | translate }}
+                  <i class="ace-icon fa fa-print icon-on-right"></i>
+                </button>
+                <button class="btn btn-primary add-order" (click)="modalEmail.open()">
+                  {{ 'newOrder.quotEmail' | translate }}
+                  <i class="ace-icon fa fa-paper-plane-o icon-on-right"></i>
+                </button>
+                <!-- <div class="wizard-actions"> -->
+                  <button class=" pull-right btn btn-primary add-order" (click)="addOrder(customer_paid.value)">
+                    {{ 'newOrder.smallTitle' | translate }}
+                    <i class="ace-icon fa fa-arrow-right icon-on-right"></i>
+                  </button>
+                <!-- </div> -->
+              </div>
+            </div>
+            <!-- /PRODUCT -->
+          </div>
+          <!-- /.widget-main -->
+        </div>
+        <!-- /.widget-body -->
+      </div>
+    </div>
+    <!-- /.col -->
+  </div>
+  <!-- /.row -->
+</div>
+
+<!-- NEW CUS -->
+<bs-modal #modal>
+  <bs-modal-header [showDismiss]="true">
+    <h4 class="modal-title">Create customer</h4>
+  </bs-modal-header>
+  <bs-modal-body>
+    <div class="search-area well well-sm">
+      <app-input-field [attribute]="'Table.name' | translate" [control]="form.get('name')">
+      </app-input-field>
+
+      <app-input-field [attribute]="'Table.phone' | translate" [control]="form.get('phone')">
+      </app-input-field>
+
+      <app-input-field [attribute]="'Table.email' | translate" [control]="form.get('email')">
+      </app-input-field>
+
+      <app-input-field [attribute]="'Table.address' | translate" [control]="form.get('address')">
+      </app-input-field>
+    </div>
+  </bs-modal-body>
+  <bs-modal-footer>
+    <button class="btn btn-primary" data-dismiss="modal" (click)="addCustomer()" [disabled]="form.invalid">
+      {{ 'customers.create' | translate }}</button>
+    <button type="button" class="btn btn-grey" data-dismiss="modal" (click)="modal.dismiss()">
+      {{ 'customers.close' | translate }}</button>
+  </bs-modal-footer>
+</bs-modal>
+<!-- / NEW CUS -->
+
+<!-- Email to send Quot -->
+<bs-modal #modalEmail id="modalEmail">
+  <bs-modal-header [showDismiss]="true">
+    <h4 class="modal-title">{{ 'newOrder.quotEmailTitle' | translate }}</h4>
+  </bs-modal-header>
+  <bs-modal-body>
+    <div *ngIf="customerSelected">
+      <span>{{ 'newOrder.sendTo' | translate }} {{customerSelected?.email}}? </span>
+      <button class="btn btn-primary" data-dismiss="modalEmail" (click)="sendQuot(customerSelected.email)">OK</button>
+      <hr>
+    </div>
+    <div class="search-area well well-sm">
+      <h5>Nhập email:</h5>
+      <input type="email" [(ngModel)]="emailQuot" placeholder="Email">
+    <br>
+      <button class="btn btn-primary" data-dismiss="modalEmail" (click)="sendQuot(emailQuot)">
+        {{ 'newOrder.quotEmail' | translate }}</button>
+    </div>
+  </bs-modal-body>
+  <bs-modal-footer>
+    <button type="button" class="btn btn-grey" data-dismiss="modalEmail" (click)="modalEmail.dismiss()">
+      {{ 'customers.close' | translate }}</button>
+  </bs-modal-footer>
+</bs-modal>
+<!-- / Email to send Quot -->
+
+
+
+

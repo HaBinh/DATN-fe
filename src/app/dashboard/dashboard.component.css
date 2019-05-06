@@ -1,0 +1,11 @@
+div {
+  margin-right: 10px;
+}
+
+.pieChart {
+  display: block;
+  width: 40%;
+  margin-bottom: 20px;
+  border: 1px solid #bca0a0ee;
+  margin-left: 13px;
+}

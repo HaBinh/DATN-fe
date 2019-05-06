@@ -1,0 +1,14 @@
+<div class="" [class.has-error]="control.errors && (control.dirty || control.touched)">
+  <label
+    class="control-label"
+    [attr.for]=uniqueId>{{attribute}}</label>
+    <input
+      class="form-control"
+      id={{uniqueId}}
+      type={{type}}
+      [formControl]="control"
+      name={{type}}
+      placeholder={{placeholder}}
+      value={{value}}>
+    <app-error-label [control]="control" ></app-error-label>
+</div>

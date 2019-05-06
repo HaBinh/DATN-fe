@@ -1,0 +1,279 @@
+{
+  "Title": "Hello",
+  "customers_in_debt": {
+    "HeaderTable": "Danh sách khách hàng đang nợ hóa đơn",
+    "ListOrders": {
+      "Title": "Danh sách đơn hàng",
+      "THead": {
+        "No": "Order No.",
+        "TotalAmount": "Tổng tiền",
+        "Debt": "Nợ",
+        "CreatedAt": "Ngày tạo",
+        "PayDebt": "Trả nợ"
+      },
+      "Button": {
+        "Pay": "Thanh toán",
+        "Close": "Đóng"
+      }
+    }
+  },
+  "Table": {
+    "No": "Order No.",
+    "address": "Địa chỉ",
+    "amount": "Tiền",
+    "createdAt": "Thời gian tạo",
+    "customer": "Khách hàng",
+    "code": "Mã sản phẩm",
+    "date": "Ngày",
+    "dateAdded": "Ngày thêm",
+    "debt": "Nợ",
+    "discount": "Giảm giá",
+    "discountedRate": "Tỷ giá chiết khấu",
+    "discountedRateShort": "Tỷ giá",
+    "discountedPrice": "Giá bán",
+    "email": "Email",
+    "level": "Mức chiết khấu",
+    "importedDate": "Ngày nhập",
+    "importedPrice": "Giá nhập",
+    "name": "Tên",
+    "normalPrice": "Giá hãng",
+    "pay": "Thanh toán",
+    "payDebt": "Trả nợ",
+    "phone": "Điện thoại",
+    "productCode": "Code hàng hóa",
+    "productName": "Tên hàng hóa",
+    "products": "Các hàng hóa",
+    "quantity": "Số lượng",
+    "salePrice": "Thành tiền",
+    "status": "Trạng thái",
+    "sold": "Đã bán",
+    "total": "Toàn bộ",
+    "level-discount": "Cấp độ",
+    "totalAmount": "Tổng cộng",
+    "totalDebt": "Tổng nợ",
+    "unit": "Đơn vị",
+    "unitPrice": "Đơn giá",
+    "user": "Người dùng",
+    "passwordConfirmation": "Xác nhận mật khẩu",
+    "password": "Mật khẩu",
+    "role": "Vai trò"
+  },
+  "newOrder": {
+    "title": "Các đơn hàng",
+    "smallTitle": "Tạo đơn hàng",
+    "quot": "In báo giá",
+    "quotEmail": "Gửi báo giá",
+    "quotEmailTitle": "Gửi báo giá qua Email",
+    "sendTo": "Gửi tới: ",
+    "newCustomer": {
+      "title": "Khách hàng",
+      "placeHolder": "Tìm khách hàng",
+      "orAddNew": "Hoặc tạo mới",
+      "selected": "Khách hàng đã chọn"
+    },
+    "product": {
+      "title": "Tìm sản phẩm",
+      "placeHolder": "Nhập tên hoặc mã của sản phẩm",
+      "titleTable": "Các sản phẩm đang trong đơn hàng",
+      "grandTotal": "Tổng cộng",
+      "pay": "Số tiền thanh toán",
+      "debt": "Số tiền nợ lại"
+    }
+  },
+
+  "customers": {
+    "title": "Khách hàng",
+    "smallTitle": "Danh sách",
+    "create": "Tạo mới",
+    "titleModal": "Tạo khách hàng mới",
+    "close": "Đóng"
+  },
+  "Products": {
+    "THead": {
+      "Name": "Tên sản phẩm",
+      "Code": "Mã sản phẩm",
+      "Unit": "Đơn vị",
+      "Category": "Nhóm Hàng",
+      "DefaultImportedPrice": "Giá nhập mặc định",
+      "DefaultSalePrice": "Giá bán mặc định"
+    },
+    "Modal": {
+      "title-update": "Cập nhật sản phẩm",
+      "Title": "Tạo sản phẩm mới",
+      "Cancel": "Hủy bỏ",
+      "Create": "Tạo",
+      "Change": "Thay đổi hàng loạt"
+    },
+    "Header": {
+      "Title": "Sản phẩm",
+      "smallTitle": "Danh sách",
+      "smallTitle1": "Nhóm sản phẩm",
+      "category": "Thay đổi chiết khấu nhóm sản phẩm"
+    },
+    "header-discount-table": "Bảng chiết khấu"
+  },
+
+  "orderHistory": {
+    "title": "Các đơn hàng",
+    "smallTitle": "Lịch sử đơn hàng",
+    "modalTitle": "Chi tiết đơn hàng",
+    "payDebtTitle": "Thánh toán nợ",
+    "btnPayDebt": "Thanh toán",
+    "btnPrint": "In",
+    "btnClose": "Đóng"
+  },
+  "label": {
+    "fully_paid": "Trả hết",
+    "debt": "Nợ"
+  },
+
+  "sidebar": {
+    "dashboard": "Trang chủ",
+    "products": "Sản phẩm",
+    "category": "Nhóm sản phẩm",
+    "storage": "Kho hàng",
+    "import": "Nhập hàng",
+    "orders": "Đơn hàng",
+    "createOrder": "Tạo đơn hàng",
+    "ordersHistory": "Lịch sử đơn hàng",
+    "customers": "Khách hàng",
+    "discountedRate": "Tỷ suất chiết khấu",
+    "discountedRateDefault": "TSCK mặc định",
+    "discountedRateCategory": "TSCK theo nhóm",
+    "user-management": "Quản lý nhân viên",
+    "return-invoice": "Trả hóa đơn"
+  },
+
+  "store": {
+    "title": "Bảng",
+    "smallTitle": "Nhập kho",
+    "importTitle": "Nhập sản phẩm",
+    "lblSearch": "Tên( Mã ) sản phẩm",
+    "titleModal": "Nhập sản phẩm",
+    "name": "Tên sản phẩm",
+    "code": "Mã sản phẩm",
+    "qty": "Số lượng",
+    "importedPrice": "Giá nhập",
+    "import": "Nhập hàng"
+  },
+
+  "category": {
+    "title": "Nhóm hàng",
+    "titleModal": "Tạo Nhóm Hàng Mới",
+    "create": "Tạo mới",
+    "action": "Hành động"
+  },
+  "storage": {
+    "title": "Kho hàng",
+    "smallTitle": "Danh sách",
+    "title2": "Lịch sử nhập kho",
+    "search": "Tìm kiếm theo tên hoặc mã sản phẩm"
+  },
+  "rate": {
+    "title": "Tỷ suất chiết khấu mặc định",
+    "smallTitle": "Danh sách",
+    "createBtn": "Tạo tỷ lệ mới",
+    "cancelBtn": "Hủy bỏ",
+    "action": "Hành động",
+    "confirmDelete": "Bạn có chắc là muốn xóa tỉ lệ này không?",
+    "deleteBtn": "Xóa"
+  },
+  "navbar": {
+    "welcome": "Xin chào",
+    "settings": "Cài đặt",
+    "profile": "Cá nhân",
+    "logout": "Đăng xuất"
+  },
+  "login": {
+    "instruction": "Nhập thông tin tài khoản của bạn",
+    "remember": "Ghi nhớ tôi",
+    "login": "Login"
+  },
+  "errorMessage": {
+    "email": "Email không chính xác",
+    "matched": "Mật khẩu xác nhận không khớp",
+    "required": "Phần nhập bắt buộc"
+  },
+  "user-management": {
+    "title": "Quản lý nhân viên",
+    "small-title": "Danh sách",
+    "instruc1": "Bạn đã tạo mới thành công: ",
+    "instruc2": "Ghi nhớ lại! ",
+    "instruc3": "Vì ghi chú này sẽ bị xóa.",
+    "modal-title": "Tạo người dùng mới",
+    "modal-update-title": "Cập nhật thông tin",
+    "manager": "Quản lý",
+    "staff": "Nhân viên"
+  },
+  "modal": {
+    "create-btn": "Tạo mới",
+    "update-btn": "Cập nhật",
+    "confirm_remove_category": "Bạn có chắc là muốn xóa nhóm hàng này không?",
+    "confirm_remove_account": "Bạn có chắc là muốn xóa tài khoản này không?",
+    "confirm_remove_product": "Bạn có chắc là muốn xóa sản phẩm này không?",
+    "confirm_remove_history":
+      "Bạn có chắc là muốn xóa lịch sử sản phẩm này không?",
+    "Change": "Bạn có chắc muốn thay đổi chiết khấu của các sản phẩm thuộc"
+  },
+  "return-order": {
+    "title": "Trả hóa đơn",
+    "title-search": "Tìm hóa đơn",
+    "placeholder": "Gõ số hóa đơn, hoặc tên khách hàng",
+    "alert":
+      "Trả hóa đơn thành công: <br> Hóa đơn số. {{ id }} <br> Tổng tiền: {{ total_amount }} <br> <strong> Tiền trả lại cho khách hàng: {{ paid_return_user }} <br> </strong> <strong> Tiền nợ: {{ debt }} <br> </strong>"
+  },
+  "button": {
+    "cancel-btn": "Hủy bỏ",
+    "create": "Tạo mới",
+    "delete": "Xóa",
+    "Change": "Thay đổi"
+  },
+  "tooltip": {
+    "edit": "Chỉnh sửa",
+    "reactive": "Mở lại",
+    "delete": "Xóa",
+    "rate": "Tỉ xuất chiết khấu",
+    "change": "Thay đổi chiết khấu các sản phẩm theo loại"
+  },
+  "message": {
+    "product": {
+      "add": "Bạn vừa tạo thành công sản phẩm",
+      "edit-success": "Bạn vừa cập nhật thành công sản phẩm",
+      "delete": "Đã loại bỏ sản phẩm",
+      "Change": "Đã thay đổi chiết khấu các sản phẩm theo loại"
+    },
+    "new-order": {
+      "choose-customer": "Cần chọn khách hàng hoặc là tạo mới",
+      "created-order": "Đã tạo thành công đơn hàng",
+      "sent-mail": "Đã gửi mail thành công",
+      "sending-mail": "Đang gửi mail",
+      "missing-goods":
+        "Sản phẩm {{ name }} hiện tại đang hết hàng hoặc chưa nhập kho",
+      "not-enough-quantity":
+        "{{ name }} chỉ còn lại {{ quantity }} sản phẩm trong kho",
+      "customer_paid_greater_than_1":
+        "Số tiền khách hàng trả không được nhỏ hơn 0",
+      "quantity_greater_than0": "Số lượng sản phẩm mua phải lớn hơn 0"
+    },
+    "pay-debt": "Đã thanh toán nợ",
+    "forms": {
+      "required": "Phần nhập bắt buộc",
+      "should-be-matched": "Mật khẩu không khớp",
+      "code-product-taken":
+        "Mã sản phẩm này đã được sử dụng. Vui lòng chọn mã khác!",
+      "existing-email": "Email này đã tồn tại, vui lòng chọn email khác",
+      "email-not-correct": "Email không chính xác",
+      "cannot-contain-space": "Phần nhập này không được chứa khoảng trắng",
+      "min-value-error": "Giá trị cần phải lớn hơn {{ value }}",
+      "max-length-error": "Độ dài không được quá {{value}} ký tự",
+      "min-length-error": "Độ dài phải nhiều hơn {{value}} ký tự"
+    },
+    "return-order": {
+      "quantity-return": "Chỉ có thểm giảm số lượng sản phẩm",
+      "return-success": "Trả hóa đơn thành công"
+    },
+    "import": "Số lượng bằng 0, không có gì được nhập",
+    "crated-articler": "Đã nhập kho thành công",
+    "delete-success": "Xóa thành công"
+  }
+}

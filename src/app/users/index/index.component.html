@@ -1,0 +1,173 @@
+<div id="main-product" class="col-md-12">
+  <page-header
+    [title]="'user-management.title' | translate"
+    [smallTitle]="'user-management.small-title' | translate">
+
+  </page-header>
+
+  <div
+    *ngIf="showAlert"
+    class="alert alert-block alert-success">
+    <button type="button" class="close" data-dismiss="alert" (click)="showAlert=false">
+      <i class="ace-icon fa fa-times"></i>
+    </button>
+
+    <p><i class="ace-icon fa fa-check"></i>{{ 'user-management.instruc1' | translate}}</p>
+    {{ 'Table.email' | translate }}: {{emailJustAdded}}<br>
+    {{ 'Table.password' | translate }}: {{passwordJustAdded}}
+    <p><strong>{{ 'user-management.instruc2' | translate}}</strong> {{ 'user-management.instruc3' | translate}}</p>
+  </div>
+
+  <div class="tableTools-container">
+    <button type="button" class="btn btn-primary create-product" (click)="modal.open()">{{ 'user-management.modal-title' | translate}}</button>
+  </div>
+  <div>
+
+
+    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"
+          id="dynamic-table_wrapper"
+          class="table table-striped table-bordered
+          table-hover dataTable no-footer" cellspacing="0" width="100%">
+      <i *ngIf="loading" class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+      <thead>
+        <tr>
+          <th><i class="ace-icon fa fa-user"></i>{{ 'Table.user' | translate }}</th>
+          <th><i>@</i> {{ 'Table.email' | translate }}</th>
+          <th><i class="ace-icon fa fa-id-card-o"></i> {{ 'Table.role' | translate }}</th>
+          <!-- <th>{{ 'Products.THead.DefaultImportedPrice' | translate }}</th> -->
+          <!-- <th>{{ 'Products.THead.DefaultSalePrice' | translate }}</th> -->
+          <th class="sorting_disabled"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+          <td>
+            <ng-container *ngIf="user.role==='manager'">
+              <span class="label label-info arrowed-in arrowed-in-right">
+                {{ 'user-management.manager' | translate }}
+              </span>
+            </ng-container>
+            <ng-container *ngIf="user.role!=='manager'">
+              <span class="label label-yellow arrowed-in">
+                {{ 'user-management.staff' | translate }}
+              </span>
+            </ng-container>
+          </td>
+
+          <td class="center">
+            <button class="btn btn-xs btn-info" tooltip="{{ 'tooltip.edit' | translate }}" (click)="selectUpdate(user.id)">
+              <i class="ace-icon fa fa-pencil bigger-120"></i>
+            </button>
+            <button *ngIf="user.active==true"class="btn btn-xs btn-danger" tooltip="{{ 'tooltip.delete' | translate }}" (click)="openModalRemoveAccount(user)">
+              <i class="ace-icon fa fa-trash-o bigger-120"></i>
+            </button>
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<bs-modal #modal>
+  <bs-modal-header [showDismiss]="true">
+    <h4 class="modal-title">{{ 'user-management.modal-update-title' | translate}}</h4>
+  </bs-modal-header>
+  <bs-modal-body>
+    <app-input-field [attribute]="'Table.name' | translate" [control]="form.get('name')">
+    </app-input-field>
+
+    <app-input-field [attribute]="'Table.email' | translate" [control]="form.get('email')">
+    </app-input-field>
+
+    <app-input-field [attribute]="'Table.password' | translate" [control]="form.get('password')" [type]="'password'">
+    </app-input-field>
+
+    <app-input-field [attribute]="'Table.passwordConfirmation' | translate" [control]="form.get('password_confirmation')" [type]="'password'">
+    </app-input-field>
+    <app-error-label [control]="form"></app-error-label>
+
+    <div class="control-group">
+      <label for="">{{ 'Table.role' | translate }}</label>
+      <!-- choose manager -->
+      <div class="radio">
+        <label>
+          <input type="radio" class="ace" name="form-field-radio" [value]="true" [(ngModel)]="role">
+          <span class="lbl">
+            {{ 'user-management.manager' | translate }}
+          </span>
+        </label>
+      </div>
+      <!-- Choose staff -->
+      <div class="radio">
+        <label>
+          <input type="radio" class="ace" name="form-field-radio" [value]="false" [(ngModel)]="role">
+          <span class="lbl">
+             {{ 'user-management.staff' | translate }}
+          </span>
+        </label>
+      </div>
+
+    </div>
+
+  </bs-modal-body>
+  <bs-modal-footer>
+    <button type="button" class="btn btn-default" data-dismiss="modal" (click)="modal.dismiss()">{{ 'Products.Modal.Cancel' | translate }}</button>
+    <button id="btn-create-user" class="btn btn-primary add-product" (click)="addUser(form.value)" [disabled]="form.invalid">{{ 'button.create' | translate }}</button>
+  </bs-modal-footer>
+</bs-modal>
+
+<bs-modal #modalUpdate>
+  <bs-modal-header [showDismiss]="true">
+    <h4 class="modal-title">{{ 'user-management.modal-update-title' | translate}}</h4>
+  </bs-modal-header>
+  <bs-modal-body>
+    <app-input-field [attribute]="'Table.name' | translate" [control]="updateForm.get('name')">
+    </app-input-field>
+
+    <div class="control-group">
+      <label for="">{{ 'Table.role' | translate }}</label>
+      <!-- choose manager -->
+      <div class="radio">
+        <label>
+          <input type="radio" class="ace" name="form-field-radio-update-user" [value]="true" [(ngModel)]="currentRole">
+          <span class="lbl">
+            {{ 'user-management.manager' | translate }}
+          </span>
+        </label>
+      </div>
+      <!-- Choose staff -->
+      <div class="radio">
+        <label>
+          <input type="radio" class="ace" name="form-field-radio-update-user" [value]="false" [(ngModel)]="currentRole">
+          <span class="lbl">
+            {{ 'user-management.staff' | translate }}
+          </span>
+        </label>
+      </div>
+
+    </div>
+
+  </bs-modal-body>
+  <bs-modal-footer>
+    <button type="button" class="btn btn-default" data-dismiss="modal" (click)="modalUpdate.dismiss()">{{ 'Products.Modal.Cancel' | translate }}</button>
+    <button class="btn btn-primary add-product" (click)="updateUser(updateForm.value)" [disabled]="updateForm.invalid">{{ 'modal.update-btn' | translate }}</button>
+  </bs-modal-footer>
+</bs-modal>
+
+<bs-modal #modalConfirm>
+  <bs-modal-header [showDismiss]="true">
+    <h2>{{ 'Table.user' | translate }} : {{ remove_user_name }}</h2>
+    <h4 class="modal-title">{{ 'modal.confirm_remove_account' | translate }}</h4>
+  </bs-modal-header>
+  <bs-modal-footer>
+    <button type="button" class="btn btn-default" data-dismiss="modal" (click)="modalConfirm.dismiss()">{{ 'button.cancel-btn' | translate }}</button>
+    <button type="button" class="btn btn-primary" (click)="removeAccount()">{{ 'button.delete' | translate }}</button>
+  </bs-modal-footer>
+</bs-modal>
+
+
+

@@ -1,0 +1,135 @@
+.card {
+  background: url(http://cdn.cheap-auto-rentals.com/images/bgtile.png);
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: box-shadow;
+  display: block;
+  position: relative;
+  padding: 24px;
+  border-radius: 2px;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+td {
+  box-sizing: content-box;
+  border-left: 1px solid rgba(34, 36, 38, 0.1);
+}
+th {
+  box-sizing: content-box;
+  border-left: 1px solid rgba(100, 36, 100, 0.1);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+table {
+  padding-top: 15px;
+}
+
+i:hover {
+  font-size: 1.3em;
+}
+
+.fa-trash {
+  color: #dd5a43;
+}
+#pencil {
+  left: 40px;
+}
+#trash {
+  margin-left: 10px;
+}
+#angle {
+  margin-left: 10px;
+  color: #d80e0e;
+}
+#search {
+  color: #543220;
+}
+#main-storage {
+  margin-top: 20px;
+}
+
+#inputSearch {
+  width: 40%;
+}
+#buton-result{
+  background: #f2f5f4;
+}
+.result-vi {
+  left: 51px;
+}
+
+.input1-vi {
+  margin-right: 65px;
+}
+
+.input2-vi {
+  margin-right: 110px;
+}
+
+
+
+#storeCode{
+  color: #ec0000;
+  margin-left: 75px;
+}
+#storeName{
+  color: #ec0000;
+  margin-left: 70px;
+}
+#storeQuan{
+  margin-left: 50px;
+}
+.pencil-as{
+  right: 17px;
+}
+.box-container {
+  height: 283px;
+}
+
+dt {
+  width: 70px;
+}
+
+dd {
+  margin-left: 90px;
+}
+
+#total {
+  color: red;
+}
+
+.line-through {
+  text-decoration: line-through;
+}
+
+.right-align {
+  text-align: right;
+}
+
+.search-area {
+  margin: 3px;
+}
+
+dl {
+  margin-bottom: 10px;
+}
+
+.results {
+  position: absolute;
+  z-index: 99999;
+  width: 39.3%;
+  padding-right: 58px;
+  margin-left: 139px;
+}
+#input-search{
+  width: 35%;
+}
+
+

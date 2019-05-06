@@ -1,0 +1,143 @@
+<div id="main-product" class="col-md-12">
+  <page-header
+    [title]="'return-order.title' | translate"></page-header>
+
+  <!-- alert -->
+  <div
+    *ngIf="showAlert"
+    class="alert alert-block alert-success">
+    <button type="button" class="close" data-dismiss="alert" (click)="showAlert=false">
+      <i class="ace-icon fa fa-times"></i>
+    </button>
+
+    <!-- <div>{{ 'return-order.alert' | translate:response }}</div> -->
+
+    <div [innerHtml]="'return-order.alert' | translate:response " ></div>
+
+  </div>
+  <!-- end alert -->
+
+  <!-- Search Order -->
+  <div class="col-md-6">
+    <div class="search-area well well-sm search-products">
+      <div class="search-filter-header bg-primary">
+        <h5 class="smaller no-margin-bottom">
+          <i class="ace-icon fa fa-sliders light-green bigger-130">
+
+          </i> {{ 'return-order.title-search' | translate }}
+        </h5>
+      </div>
+
+      <!-- end search header -->
+
+      <div class="space-8"></div>
+
+      <!-- start input search  -->
+      <div class="input-group stylish-input-group">
+        <input type="text" class="form-control search" placeholder="{{ 'return-order.placeholder' | translate }}" [(ngModel)]="term">
+        <span class="input-group-addon">
+          <button type="submit">
+            <span class="glyphicon glyphicon-search"></span>
+          </button>
+        </span>
+      </div>
+      <div class="results">
+        <perfect-scrollbar class="scroller">
+          <div class="box-container">
+            <ng-container *ngFor="let order of orderSearch|filter:term">
+              <ng-container *ngIf="term != ''">
+                <button type="button" class="list-group-item" (click)="selectOrder(order.id)">
+                  {{ order.id }} - {{ order.name }} - {{ order.created_at | date:'short' }}
+                </button>
+              </ng-container>
+            </ng-container>
+          </div>
+        </perfect-scrollbar>
+      </div>
+    </div>
+  </div>
+
+  <!-- end search order  -->
+
+
+
+  <!-- start return product  -->
+
+  <div class="col-md-12">
+    <ng-container *ngIf="loadingGetOrder">
+      <i class="fa fa-spinner fa-spin fa-3x fa-fw"></i>
+      <span class="sr-only">Loading...</span>
+    </ng-container>
+    <ng-container *ngIf="!loadingGetOrder">
+      <!-- PRODUCT -->
+      <div class="space-10"></div>
+      <div class="row">
+        <div class="col-sm-12 widget-container-col">
+          <div class="widget-box widget-color-blue3" style="opacity: 1;">
+            <div class="widget-header">
+              <h5 class="widget-title bigger lighter">
+                <i class="ace-icon fa fa-table">
+                </i> Order no. {{ orderSelected?.id }}
+              </h5>
+            </div>
+            <div class="widget-body">
+              <div class="widget-main no-padding">
+                <table id="simple-table" class="table table-striped table-bordered table-hover dataTable no-footer" cellspacing="0" width="100%">
+                  <thead>
+                    <tr>
+                      <th>{{ 'Table.code' | translate }}</th>
+                      <th>{{ 'Table.name' | translate }}</th>
+                      <th>{{ 'Table.quantity' | translate }}</th>
+                      <th>{{ 'Table.discountedRate' | translate }}</th>
+                      <th>{{ 'Table.salePrice' | translate }}</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of orderItems">
+                      <ng-container *ngIf="item.quantity !== 0">
+                        <td>{{ item.product.code }}</td>
+                        <td>{{ item.product.name }}</td>
+                        <td class="right-align">
+                          <input type="number" min="1" max="{{ item.old_quantity }}" value="{{ item.quantity }}" [(ngModel)]="item.quantity">
+                        </td>
+                        <td class="right-align">
+                          <ng-container *ngIf="item.discounted_rate == 0">---</ng-container>
+                          <ng-container *ngIf="item.discounted_rate != 0">{{ item.discounted_rate | percent }}</ng-container>
+                        </td>
+                        <td class="right-align" id="new_price">{{ item.amount | vnd}}</td>
+                        <td>
+                          <button class="btn btn-xs btn-danger remove" tooltip="Remove" (click)="removeItem(item)">
+                            <i class="ace-icon fa fa-trash-o bigger-120"></i>
+                          </button>
+                        </td>
+                      </ng-container>
+                    </tr>
+                    <tr>
+                      <td colspan="3"></td>
+                      <td class="td-total">
+                        {{ 'Table.total' | translate }}
+                      </td>
+                      <td colspan="1" class="td-price right-align" id="new_price">
+                        {{ getTotal() | vnd }}
+                      </td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <hr>
+          <div class="wizard-actions">
+            <button class="btn btn-primary add-order" (click)="returnOrder()">
+              {{ 'return-order.title' | translate }}
+              <i class="ace-icon fa fa-arrow-right icon-on-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- /PRODUCT -->
+    </ng-container>
+  </div>
+</div>

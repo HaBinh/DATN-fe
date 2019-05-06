@@ -1,0 +1,275 @@
+{
+  "Title": "Hello",
+  "customers_in_debt": {
+    "HeaderTable": "Customers in debt",
+    "ListOrders": {
+      "Title": "List Orders",
+      "THead": {
+        "No": "Order No.",
+        "TotalAmount": "Total Amount",
+        "Debt": "Debt",
+        "CreatedAt": "Created at",
+        "PayDebt": "Pay debt"
+      },
+      "Button": {
+        "Pay": "Pay",
+        "Close": "Close"
+      }
+    }
+  },
+  "Table": {
+    "No": "Order No.",
+    "address": "Address",
+    "amount": "Amount",
+    "createdAt": "Created at",
+    "customer": "Customer",
+    "code": "Code",
+    "date": "Date",
+    "dateAdded": "Date Added",
+    "debt": "Debt",
+    "discount": "Discount",
+    "discountedRate": "Discounted Rate",
+    "discountedRateShort": "Discounted Rate",
+    "discountedPrice": "Discounted Price",
+    "email": "Email",
+    "level": "Discount Level",
+    "importedDate": "Imported Date",
+    "importedPrice": "Imported Price",
+    "name": "Name",
+    "normalPrice": "Normal Price",
+    "pay": "Pay",
+    "payDebt": "Pay debt",
+    "phone": "Phone",
+    "productCode": "Product Code",
+    "productName": "Product Name",
+    "products": "Products",
+    "quantity": "Quantity",
+    "salePrice": "Sale Price",
+    "status": "Status",
+    "sold": "Sold",
+    "total": "Total",
+    "level-discount": "Level",
+    "totalAmount": "Total Amount",
+    "totalDebt": "Total Debt",
+    "unit": "Unit",
+    "unitPrice": "Unit Price",
+    "user": "User",
+    "passwordConfirmation": "Password Confirmation",
+    "password": "Password",
+    "role": "Role"
+  },
+  "newOrder": {
+    "title": "Orders",
+    "smallTitle": "New order",
+    "quot": "Print quotation",
+    "quotEmail": "Send to Email",
+    "quotEmailTitle": "Send Quot to Email",
+    "sendTo": "Send to: ",
+    "newCustomer": {
+      "title": "Customer",
+      "placeHolder": "Find an existing customer",
+      "orAddNew": " Or Add new",
+      "selected": "Selected customer"
+    },
+    "product": {
+      "title": "Search Product",
+      "placeHolder": "Type product's name or code",
+      "titleTable": "Products in order",
+      "grandTotal": "Grand total",
+      "pay": "Pay",
+      "debt": "Debt"
+    }
+  },
+
+  "customers": {
+    "title": "Customers",
+    "smallTitle": "List",
+    "create": "Create Customer",
+    "titleModal": "Create new customer",
+    "close": "Close"
+  },
+  "Products": {
+    "THead": {
+      "Name": "Name",
+      "Code": "Code",
+      "Unit": "Unit",
+      "Category": "Category",
+      "DefaultImportedPrice": "Default imported price",
+      "DefaultSalePrice": " Default sale price"
+    },
+    "Modal": {
+      "title-update": "Update product",
+      "Title": "Create new product",
+      "Cancel": "Cancel",
+      "Create": "Create Product",
+      "Change": "Change"
+    },
+    "Header": {
+      "Title": "Products",
+      "smallTitle": "List",
+      "smallTitle1": "Category",
+      "category": "Change the category of the product"
+    },
+    "header-discount-table": "Discount Table"
+  },
+
+  "orderHistory": {
+    "title": "Orders",
+    "smallTitle": "Orders History",
+    "modalTitle": "Order detail",
+    "payDebtTitle": "Pay debt",
+    "btnPayDebt": "Pay",
+    "btnPrint": "Print",
+    "btnClose": "Close"
+  },
+  "label": {
+    "fully_paid": "Fully paid",
+    "debt": "Debt"
+  },
+
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "products": "Products",
+    "category": "Categories",
+    "storage": "Storage",
+    "import": "Import",
+    "orders": "Orders",
+    "createOrder": "Create Order",
+    "ordersHistory": "Orders History",
+    "customers": "Customers",
+    "discountedRate": "Discounted Rate",
+    "discountedRateDefault": "By Default",
+    "discountedRateCategory": "By Category",
+    "user-management": "Users Management",
+    "return-invoice": "Return invoice"
+  },
+  "category": {
+    "title": "Categories",
+    "titleModal": "Create New Category",
+    "create": "Create Category",
+   "action": "Action"
+  },
+
+  "store": {
+    "title": "Tables",
+    "smallTitle": "Import Storage",
+    "importTitle": "Import Product",
+    "lblSearch": "Name( Code )",
+    "titleModal": "Import a Product",
+    "name": "Product Name",
+    "code": "Product Code",
+    "qty": "Product Quantity",
+    "importedPrice": "Product Imported Price",
+    "import": "Import"
+  },
+
+  "storage": {
+    "title": "Storage",
+    "smallTitle": "List",
+    "title2": "History Import Storage",
+    "search": "Search name or code product"
+  },
+  "rate": {
+    "title": "Discounted Rate Default",
+    "smallTitle": "List",
+    "createBtn": "Create new discounted rate",
+    "cancelBtn": "Cancel",
+    "action": "Action",
+    "confirmDelete": "Are you sure to delete this discounted rate?",
+    "deleteBtn": "Delete"
+  },
+  "navbar": {
+    "welcome": "Welcome",
+    "settings": "Settings",
+    "profile": "Profile",
+    "logout": "Logout"
+  },
+  "login": {
+    "instruction": "Please Enter Your Information",
+    "remember": "Remember me",
+    "login": "Login"
+  },
+  "errorMessage": {
+    "email": "Email not correct",
+    "matched": "password confirmation doesn't match",
+    "required": "This field is required"
+  },
+  "user-management": {
+    "title": "Users Management",
+    "small-title": "List",
+    "instruc1": "You succeed to create new user with: ",
+    "instruc2": "Remember it!.",
+    "instruc3": " This note will not be longer.",
+    "modal-title": "Create New User",
+    "modal-update-title": "Update User",
+    "manager": "Manager",
+    "staff": "Staff"
+  },
+  "modal": {
+    "create-btn": "Create Product",
+    "update-btn": "Update",
+    "confirm_remove_category": "Are you sure want to remove this category?",
+    "confirm_remove_account": "Are you sure want to remove this account?",
+    "confirm_remove_product": "Are you sure you want to delete this product?",
+    "confirm_remove_history": "Are you sure you want to delete this history?",
+    "Change": "Are you sure you want to change the discount of products"
+  },
+  "return-order": {
+    "title": "Return invoice",
+    "title-search": "Search Order",
+    "placeholder": "Type order no or customer",
+    "alert":
+      "Return invoice successful: <br> Order no. {{ id }} <br> Total Amount: {{ total_amount }} <br> <strong> Refunds to customer: {{ paid_return_user }} <br> </strong> <strong> Debt: {{ debt }} <br> </strong>"
+  },
+  "button": {
+    "cancel-btn": "Cancel",
+    "create": "Create",
+    "delete": "Delete",
+    "change": "Change"
+  },
+  "tooltip": {
+    "edit": "Edit",
+    "reactive": "Reactive",
+    "delete": "Delete",
+    "rate": "Discounted Rate",
+    "change": "Change Discount rate product in category"
+  },
+  "message": {
+    "product": {
+      "add": "You have successfully created your product",
+      "edit-success": "You have successfully updated your product",
+      "delete": "Have removed the product",
+      "Change": "Discounted products by category"
+    },
+    "new-order": {
+      "choose-customer": "Please select or add new customer",
+      "created-order": "Created order successful",
+      "sent-mail": "Have sent mail",
+      "sending-mail": "Sending mail",
+      "missing-goods": "This product {{ name }} is currently out of stock",
+      "not-enough-quantity":
+        "{{ name }} only has {{ quantity }} products left in stock",
+      "customer_paid_greater_than_1": "Customer paid can not be less than 0",
+      "quantity_greater_than0": "Quantity should be greater than 0"
+    },
+    "pay-debt": "Paid debt successful",
+    "forms": {
+      "required": "This field is required",
+      "should-be-matched": "Password confirmation doesn't match",
+      "code-product-taken": "This code has already taken",
+      "existing-email": "This email has already taken",
+      "email-not-correct": "Email not correct",
+      "cannot-contain-space": "This field cannot contain spaces",
+      "min-value-error": "Must be greater than {{ value }}",
+      "max-length-error": "Must be shorter than {{value}}",
+      "min-length-error": "Must be longer than {{value}}"
+    },
+    "return-order": {
+      "quantity-return": "Can only reduce number of products",
+      "return-success": "Return order successful"
+    },
+    "import": "Quantity is 0, nothing is imported",
+    "crated-articler": "imported to storage",
+    "delete-success": "Deleted success"
+  }
+}

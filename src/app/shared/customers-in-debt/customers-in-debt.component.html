@@ -1,0 +1,106 @@
+<div class="col-md-12 widget-container-col">
+  <div class="widget-box widget-color-blue" style="opacity: 1;">
+    <div class="widget-header">
+      <h5 class="widget-title bigger lighter">
+        <i class="ace-icon fa fa-table">
+
+        </i>
+        {{ 'customers_in_debt.HeaderTable' | translate }}
+      </h5>
+    </div>
+
+    <div class="widget-body">
+      <div class="widget-main no-padding">
+        <table
+          datatable
+          [dtOptions]="dtOptions"
+          [dtTrigger]="dtTrigger"
+          id="dynamic-table_wrapper"
+          class="table table-striped table-bordered table-hover dataTable no-footer"
+          cellspacing="0" width="100%" >
+          <thead>
+            <tr>
+              <th width="15%"> <i class="ace-icon fa fa-user"></i>{{ 'Table.user' | translate}}</th>
+              <th width="15%"> <i class="ace-icon fa fa-phone"></i>{{ 'Table.phone' | translate}} </th>
+              <th width="20%"> <i>@</i> {{ 'Table.email' | translate}} </th>
+              <th width="20%"> {{ 'Table.totalDebt' | translate }}</th>
+              <th width="30%">{{ 'Table.payDebt' | translate }}</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let customer of customers"
+                class="tr-customer"
+                toolTip="Click to see detail what orders">
+              <td (click)="openOrder(customer)">{{ customer.name }}</td>
+              <td (click)="openOrder(customer)">{{ customer.phone }}</td>
+              <td (click)="openOrder(customer)">{{ customer.email }}</td>
+              <td (click)="openOrder(customer)" class="text-right debt bigger-120">{{ customer.total_debt  | vnd }}</td>
+              <td>
+                <form class="form-inline">
+                  <input type="number" value={{customer.total_debt}} #payment>
+                  <button type="button" (click)="payTotalDebt(customer.id, payment.value)" class="btn btn-info btn-sm">
+                    <i class="ace-icon fa fa-money bigger-110"></i>{{ 'customers_in_debt.ListOrders.Button.Pay' | translate }}
+                  </button>
+                </form>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<bs-modal #modal [size]="'lg'">
+  <bs-modal-header [showDismiss]="true">
+    <h4 class="modal-title">
+      {{ 'customers_in_debt.ListOrders.Title' | translate }}
+    </h4>
+  </bs-modal-header>
+
+  <bs-modal-body>
+    <table class="table table-striped table-bordered table-hover" cellspacing="0" width="100%">
+      <thead>
+        <tr>
+          <th>{{ 'Table.No' | translate }}</th>
+          <th>{{ 'Table.totalAmount' | translate }}</th>
+          <th>{{ 'Table.debt' | translate }}</th>
+          <th>{{ 'Table.createdAt' | translate }}</th>
+          <th>{{ 'Table.payDebt' | translate }}</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let order of selectedCustomer.orders_not_fully_paid">
+          <td>
+            #{{ order.id }}
+          </td>
+          <td class="text-right">
+            {{ order.total_amount | vnd }}
+          </td>
+          <td class="debt bigger-110 text-right">
+            {{ order.debt | vnd }}
+          </td>
+          <td>
+            {{ order.created_at | date:'medium' }}
+          </td>
+          <td>
+            <form class="form-inline">
+              <input type="number" value={{order.debt}} #payment>
+
+              <button type="button" (click)="payDebt(order.id, payment.value)"
+                class="btn btn-info btn-sm">
+                <i class="ace-icon fa fa-money bigger-110"></i>{{ 'customers_in_debt.ListOrders.Button.Pay' | translate }}
+              </button>
+            </form>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </bs-modal-body>
+
+  <bs-modal-footer>
+    <button type="button" class="btn btn-grey" data-dismiss="modal" (click)="modal.dismiss()">{{ 'customers_in_debt.ListOrders.Button.Close' | translate }}</button>
+  </bs-modal-footer>
+</bs-modal>

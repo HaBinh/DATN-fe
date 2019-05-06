@@ -1,0 +1,80 @@
+.box-container {
+  max-height: 283px;
+}
+dt {
+  width: 70px;
+}
+dd {
+  margin-left: 90px;
+}
+#total {
+  color: red;
+}
+.line-through {
+  text-decoration: line-through;
+}
+.right-align {
+  text-align: right;
+}
+.search-area {
+  margin: 3px;
+}
+dl {
+  margin-bottom: 10px;
+}
+.results{
+  position: absolute;
+  z-index: 99999;
+  width: 100%;
+  padding-right: 58px;
+}
+#customer-paid {
+  width: 100px;
+}
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 10px;
+}
+.close-btn:hover{
+  font-size: 1.3em;
+}
+.add-cus {
+  margin-top: 5px;
+  margin-bottom: 2px;
+  border-radius: 5px;
+}
+button>i{
+  margin-left: 4px;
+}
+.stylish-input-group .input-group-addon{
+  background: white !important;
+}
+.stylish-input-group .form-control{
+border-right:0;
+box-shadow:0 0 0;
+border-color:#ccc;
+}
+.stylish-input-group button{
+  border:0;
+  background:transparent;
+}
+.search-products {
+  height: 145px;
+}
+modal-body button {
+  margin: 5px;
+  border-radius: 5px;
+}
+modal-body input {
+  width: 100%;
+  margin: 5px;
+}
+
+#quantity {
+  width: 60px;
+}
+
+.errors-quantity {
+  background-color: bisque !important;
+}

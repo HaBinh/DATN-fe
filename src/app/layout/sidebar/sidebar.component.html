@@ -1,0 +1,167 @@
+<script type="text/javascript">
+    try{ace.settings.loadState('sidebar')}catch(e){}
+</script>
+
+<div class="sidebar-shortcuts" id="sidebar-shortcuts">
+    <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
+        <button class="btn btn-success">
+            <i  class="ace-icon fa fa-signal"></i>
+        </button>
+
+        <button [routerLink]="['/new-order']" tooltip="Create order" class="btn btn-info">
+            <i class="ace-icon fa fa-pencil"></i>
+        </button>
+
+        <!-- #section:basics/sidebar.layout.shortcuts -->
+        <button [routerLink]="['/customers']" class="btn btn-warning">
+            <i class="ace-icon fa fa-users"></i>
+        </button>
+
+        <button class="btn btn-danger">
+            <i class="ace-icon fa fa-cogs"></i>
+        </button>
+
+        <!-- /section:basics/sidebar.layout.shortcuts -->
+    </div>
+
+    <div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
+        <span class="btn btn-success"></span>
+
+        <span class="btn btn-info"></span>
+
+        <span class="btn btn-warning"></span>
+
+        <span class="btn btn-danger"></span>
+    </div>
+</div><!-- /.sidebar-shortcuts -->
+
+<ul class="nav nav-list">
+  <li *ngIf="isManager" routerLinkActive="active">
+      <a [routerLink]="['/dashboard']">
+          <i class="menu-icon fa fa-desktop"></i>
+          <span class="menu-text"> {{ 'sidebar.dashboard' | translate }} </span>
+      </a>
+  </li>
+
+  <li routerLinkActive="active">
+    <a href="#" class="dropdown-toggle" >
+        <i class="menu-icon fa fa-tasks "></i>
+        <span class="menu-text">
+          {{ 'sidebar.products' | translate }}
+        </span>
+        <b class="arrow fa fa-angle-down"></b>
+    </a>
+    <b class="arrow"></b>
+    <ul class="submenu">
+      <li routerLinkActive="active">
+        <a [routerLink]="['/products']">
+          <i class="menu-icon fa fa-list"></i>
+          <span class="menu-text">
+            {{ 'sidebar.products' | translate }}
+          </span>
+        </a>
+      </li>
+      <li routerLinkActive="active">
+        <a [routerLink]="['/categoryDiscount']">
+          <i class="menu-icon fa fa-lock"></i>
+          <span class="menu-text">
+            {{ 'sidebar.category' | translate }}
+          </span>
+        </a>
+      </li>
+    </ul>
+  </li>
+
+  <li routerLinkActive="active">
+    <a [routerLink]="['/storage']" >
+        <i class="menu-icon fa fa-database "></i>
+        <span class="menu-text">
+          {{ 'sidebar.storage' | translate }}
+        </span>
+    </a>
+  </li>
+
+  <li routerLinkActive="active">
+      <a [routerLink]="['/import-product']" >
+          <i class="menu-icon fa fa-cloud-download "></i>
+          <span class="menu-text">
+            {{ 'sidebar.import' | translate }}
+          </span>
+      </a>
+  </li>
+
+  <li class="" routerLinkActive="active">
+      <a href="#" class="dropdown-toggle">
+        <i class="menu-icon fa fa-cart-arrow-down"></i>
+        <span class="menu-text"> {{ 'sidebar.orders' | translate }} </span>
+        <b class="arrow fa fa-angle-down"></b>
+      </a>
+      <b class="arrow"></b>
+      <ul class="submenu">
+        <li routerLinkActive="active">
+          <a [routerLink]="['/new-order']">
+              <i class="menu-icon fa fa-plus-square"></i>
+              <span class="menu-text">
+                {{ 'sidebar.createOrder' | translate }}
+              </span>
+          </a>
+        </li>
+        <li routerLinkActive="active">
+          <a [routerLink]="['/order-history']" >
+              <i class="menu-icon fa fa-book"></i>
+              <span class="menu-text">
+                {{ 'sidebar.ordersHistory' | translate }}
+              </span>
+          </a>
+        </li>
+
+        <li *ngIf="isManager" routerLinkActive="active">
+          <a [routerLink]="['/return-order']">
+            <i class="menu-icon fa fa-book"></i>
+            <span class="menu-text">
+              {{ 'sidebar.return-invoice' | translate }}
+            </span>
+          </a>
+        </li>
+      </ul>
+  </li>
+
+
+  <li routerLinkActive="active">
+    <a [routerLink]="['/customers']" >
+        <i class="menu-icon fa fa-users  "></i>
+        <span class="menu-text">
+          {{ 'sidebar.customers' | translate }}
+        </span>
+    </a>
+  </li>
+
+  <li *ngIf="isManager" routerLinkActive="active">
+    <a [routerLink]="['/users']">
+      <i class="menu-icon fa fa-user-plus"></i>
+      <span class="menu-text">
+        {{ 'sidebar.user-management' | translate }}
+        <!-- {{ 'sidebar.customers' | translate }} -->
+      </span>
+    </a>
+  </li>
+
+  <li *ngIf="isManager" routerLinkActive="active">
+  <a [routerLink]="['/discount-rate']">
+    <i class="menu-icon fa fa-info-circle"></i>
+    <span class="menu-text">
+      {{ 'sidebar.discountedRateDefault' | translate }}
+    </span>
+  </a>
+  </li>
+
+</ul><!-- /.nav-list -->
+
+<!-- #section:basics/sidebar.layout.minimize -->
+<div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
+  <i
+    id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
+</div>
+<!-- /section:basics/sidebar.layout.minimize -->
+
+

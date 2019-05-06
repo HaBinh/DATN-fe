@@ -1,0 +1,55 @@
+.card {
+  background: url(http://cdn.cheap-auto-rentals.com/images/bgtile.png);
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+    0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: box-shadow;
+  display: block;
+  position: relative;
+  padding: 24px;
+  border-radius: 2px;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+td {
+  box-sizing: content-box;
+  border-left: 1px solid rgba(34, 36, 38, 0.1);
+}
+th {
+  box-sizing: content-box;
+  border-left: 1px solid rgba(100, 36, 100, 0.1);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+table {
+  padding-top: 15px;
+}
+
+i:hover {
+  font-size: 1.3em;
+}
+
+.fa-trash {
+  color: #dd5a43;
+}
+.center {
+  text-align: center;
+}
+.input {
+  width: 125px;
+}
+.percent {
+  font-size: 20px;
+  margin-right: 20px;
+  color: red;
+}
+.percent1 {
+  font-size: 15px;
+  color: red;
+}

@@ -1,0 +1,22 @@
+<ngx-loading-bar [includeSpinner]="true" [color]="'#ffc107'" [height]="'4px'"></ngx-loading-bar>
+<div navbar id="navbar" class="navbar navbar-default ace-save-state navbar-fixed-top"
+    *ngIf="(userSignedIn$ | async)">
+
+</div>
+
+<div class="main-container ace-save-state" id="main-container">
+    <div
+      [exclude]="'button,.btn-primary,#menu-toggler'"
+      (clickOutside)="onClickOutSideBar($event)"
+      sidebar *ngIf="(userSignedIn$ | async)" id="sidebar" class="sidebar responsive ace-save-state sidebar-fixed">
+
+    </div>
+    <div class="main-content">
+      <div class="main-container-inner">
+          <router-outlet></router-outlet>
+      </div>
+
+    </div>
+    <div footer class="footer" *ngIf="(userSignedIn$ | async)"></div>
+</div>
+<app-toastr></app-toastr>

@@ -1,0 +1,35 @@
+tr {
+    cursor:pointer;
+}
+
+.td-total {
+  font-weight: 500;
+  font-size: 1.25em;
+}
+
+.td-price {
+  font-size: 1.25em;
+  font-weight: 500;
+  margin-top: 5px;
+}
+
+.old_price{
+  text-decoration: line-through;
+}
+#new_price{
+  color: #C70303;
+}
+
+/deep/ .modal-test  {
+  width: 800px;
+}
+
+h4  {
+  font-weight: bold;
+}
+h5  {
+  font-weight: bold;
+}
+.right-align {
+  text-align: right;
+}

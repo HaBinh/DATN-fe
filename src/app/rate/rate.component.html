@@ -1,0 +1,84 @@
+<div id="main-product" class="col-md-12">
+  <!-- <page-header [title]="'rate.title' | translate " [smallTitle]="'rate.smallTitle' | translate "></page-header>
+  <button *ngIf="adding == -1" (click)="changeToAdd()" type="button" class="btn btn-primary">{{ 'rate.createBtn' | translate }}</button>
+  <form *ngIf="adding == 1" [formGroup]="formAdd" (keydown)="keyDownFunction(formAdd.value, $event)">
+    <div>
+      <input (keyup.enter)= "addRate(formAdd.value)"
+      type="number" placeholder="Discount Rate " min=0 max=100
+      [formControl]="formAdd.get('newRateAdd')" class="input"><a class="percent"> % </a>
+      <button type="button" [disabled]="formAdd.invalid" class="btn btn-primary rate-add" (click)="addRate(formAdd.value)"> {{ 'rate.createBtn' | translate }}</button>
+      <button class="btn btn-white btn-default btn-round" (click)="revertAdd()">
+        <i class="ace-icon fa fa-times red2"></i>
+        {{ 'rate.cancelBtn' | translate }}
+      </button>
+    </div>
+  </form>
+  <hr> -->
+  <div class="col-sm-11 widget-container-col">
+    <div class="widget-box widget-color-blue" style="opacity: 1;">
+      <div class="widget-header">
+        <h5 class="widget-title bigger lighter">
+          <i class="ace-icon fa fa-table">
+          </i> {{ 'rate.title' | translate }}
+        </h5>
+      </div>
+      <div class="widget-body">
+        <div class="widget-main no-padding">
+          <table id="simple-table" class="table table-striped table-bordered table-hover dataTable no-footer" cellspacing="0" width="100%">
+            <thead>
+              <tr>
+                <th class="center"><i class="ace-icon fa fa-exclamation-circle"></i>ID</th>
+                <th class="center"><i class="ace-icon fa fa-gift"></i>{{ 'rate.title' | translate }}</th>
+                <th class="center"><i class="ace-icon fa fa-gavel"></i>{{ 'rate.action' | translate }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let rate of rates; let i = index">
+                <ng-container *ngIf="editing != rate.id">
+                  <ng-container *ngIf="1 != rate.id">
+                    <td class="center">{{ i }}</td>
+                    <td class="center rate">{{ rate.rate*100 | number : '1.0'}}
+                      <span class="percent1"> % </span>
+                    </td>
+                    <td class="action-buttons center">
+                      <button class="btn btn-xs btn-info" tooltip="{{ 'tooltip.edit' | translate }}" (click)="changeToEdit(rate, $event)">
+                        <i class="ace-icon fa fa-pencil bigger-120"></i>
+                      </button>
+                      <!-- <span class="fa fa-trash  fa-lg pointer" id="trash" (click)="modal.open(rate, $event)"> </span> -->
+                    </td>
+                    <!-- <modal #modal>
+                      <modal-header [show-close]="true">
+                        <h4 class="modal-title">{{ 'rate.confirmDelete' | translate }}</h4>
+                      </modal-header>
+                      <modal-footer>
+                        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="modal.dismiss()">{{ 'rate.cancelBtn' | translate }}</button>
+                        <button type="button" class="btn btn-primary" (click)="deleteRate(rate)">{{ 'rate.deleteBtn' | translate }}</button>
+                      </modal-footer>
+                    </modal> -->
+                  </ng-container>
+                </ng-container>
+                <ng-container *ngIf="rate.id == editing ">
+                  <ng-container *ngIf="1 != rate.id">
+                    <td class="center">{{ i }}</td>
+                    <td class="center">
+                      <input class="center" type="number" min=0 max=100 class="input center" value={{this.tam}} [formControl]="formEdit.get('newRate')">
+                      <span class="percent1"> % </span>
+                    </td>
+                    <td class=" action-buttons center">
+                      <a (click)="editRate(formEdit.value, rate)" class="green edit" tooltip="Ok">
+                        <i class="ace-icon fa fa-check bigger-150 pointer" id="pencil"></i>
+                      </a>
+                      <a (click)="revertEdit(rate)" class="red" tooltip="Cancel">
+                        <i class="ace-icon fa fa-remove  bigger-150 pointer"></i>
+                      </a>
+                    </td>
+                  </ng-container>
+                </ng-container>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
