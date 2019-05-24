@@ -9,6 +9,7 @@ import { environment } from '../../environments/environment';
 import {Angular2TokenService} from 'angular2-token';
 import { Store } from './store.model';
 import { Storage } from '../storage/storage.model';
+import { Inventory } from './inventory.model';
 
 @Injectable()
 export class StoreService {
@@ -54,6 +55,12 @@ export class StoreService {
                 return res;
               })
               .catch(this.handleError);
+  }
+
+  get_inventory_statisitc(): Observable<Inventory[]> {
+    const uri = `${this.baseUrl}/get_inventory_statistics`;
+    return this.http.get(uri, { headers: this.headers })
+                .map((res: any) => res.imports as Inventory[])
   }
 
   private handleError(error: any): Promise<any> {

@@ -39,6 +39,7 @@ import {TranslateHttpLoader}    from '@ngx-translate/http-loader';
 import { VndPipe } from './shared/vnd.pipe';
 import { LoadingBarHttpModule } from '@ngx-loading-bar/http';
 import { CategoryDiscountComponent } from './category-discount/category-discount.component';
+import { InventoryStatisticComponent } from './inventory-statistic/inventory-statistic.component';
 // import { BsModalModule } from "ng2-bs3-modal";
 
 
@@ -61,7 +62,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     OrderHistoryComponent,
     NewOrderComponent,
     RateComponent,
-    CategoryDiscountComponent
+    CategoryDiscountComponent,
+    InventoryStatisticComponent
   ],
   imports: [
     BrowserAnimationsModule,
