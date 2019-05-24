@@ -26,6 +26,15 @@ export class DashboardComponent implements OnInit {
   total_profit: any;
   total_expenditure: any;
   total_revenue: any;
+
+  total_profit_month: any;
+  total_expenditure_month: any;
+  total_revenue_month: any;
+
+  total_profit_week: any;
+  total_expenditure_week: any;
+  total_revenue_week: any;
+
   total_inventory: any;
   total_sales: any;
   check = 0;
@@ -39,6 +48,10 @@ export class DashboardComponent implements OnInit {
   public barChartType = "bar";
   public barChartLegend = true;
   public barChartData: any;
+  public barChartDataMonth: any;
+  public barChartLabelsMonth: string[];
+  public barChartDataWeek: any;
+  public barChartLabelsWeek: string[];
 
   loading: boolean;
 
@@ -79,12 +92,29 @@ export class DashboardComponent implements OnInit {
       this.total_profit = results[2].profit.map(total => total.total);
       this.total_expenditure = results[0].imported_price.map(total => total.total);
       this.total_revenue = results[1].total_amount.map(total => total.total);
+
+      this.barChartLabelsMonth = results[8].profit_month.map(val => val.day);
+      this.total_profit_month = results[8].profit_month.map(total => total.total);
+      this.total_expenditure_month = results[6].imported_price_month.map(total => total.total);
+      this.total_revenue_month = results[7].total_amount_month.map(total => total.total);
+
+      this.barChartLabelsWeek = results[11].profit_week.map(val => val.day);
+      this.total_profit_week = results[11].profit_week.map(total => total.total);
+      this.total_expenditure_week = results[9].imported_price_week.map(total => total.total);
+      this.total_revenue_week = results[10].total_amount_week.map(total => total.total);
+
       this.total_inventory = results[3].inventory.map(total => total.total);
       this.total_sales = results[4].sales.map(total => total.total);
       this.chart(
         this.total_expenditure,
         this.total_revenue,
         this.total_profit,
+        this.total_expenditure_month,
+        this.total_revenue_month,
+        this.total_profit_month,
+        this.total_expenditure_week,
+        this.total_revenue_week,
+        this.total_profit_week,
         this.total_inventory,
         this.total_sales
       );
@@ -96,6 +126,12 @@ export class DashboardComponent implements OnInit {
     total_expenditure,
     total_revenue,
     total_profit,
+    total_expenditure_month,
+    total_revenue_month,
+    total_profit_month,
+    total_expenditure_week,
+    total_revenue_week,
+    total_profit_week,
     total_inventory,
     total_sales
   ) {
@@ -108,12 +144,32 @@ export class DashboardComponent implements OnInit {
         { data: total_revenue, label: "Total Revenue" },
         { data: total_profit, label: "Total Profit" }
       ];
+      this.barChartDataMonth = [
+        { data: total_expenditure_month, label: "Total Expenditure" },
+        { data: total_revenue_month, label: "Total Revenue" },
+        { data: total_profit_month, label: "Total Profit" }
+      ];
+      this.barChartDataWeek = [
+        { data: total_expenditure_week, label: "Total Expenditure" },
+        { data: total_revenue_week, label: "Total Revenue" },
+        { data: total_profit_week, label: "Total Profit" }
+      ];
       this.pieChartLabels = ["Inventory Amount", "Saled Amount"];
     } else {
       this.barChartData = [
         { data: total_expenditure, label: "Tổng Chi" },
         { data: total_revenue, label: "Tổng Thu" },
         { data: total_profit, label: "Tổng Lợi Nhuận" }
+      ];
+      this.barChartDataMonth = [
+        { data: total_expenditure_month, label: "Tổng Chi" },
+        { data: total_revenue_month, label: "Tổng Thu" },
+        { data: total_profit_month, label: "Tổng Lợi Nhuận" }
+      ];
+      this.barChartDataWeek = [
+        { data: total_expenditure_week, label: "Tổng Chi" },
+        { data: total_revenue_week, label: "Tổng Thu" },
+        { data: total_profit_week, label: "Tổng Lợi Nhuận" }
       ];
       this.pieChartLabels = ["Tổng Hàng Tồn Kho", "Tổng Hàng Bán Ra"];
     }

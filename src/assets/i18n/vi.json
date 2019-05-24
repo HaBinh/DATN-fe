@@ -17,6 +17,9 @@
       }
     }
   },
+  "1_year": "1 năm",
+  "1_month": "1 tháng",
+  "1_week": "1 tuần",
   "Table": {
     "No": "Order No.",
     "address": "Địa chỉ",

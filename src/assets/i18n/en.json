@@ -17,6 +17,9 @@
       }
     }
   },
+  "1_year": "1 year",
+  "1_month": "1 month",
+  "1_week": "1 week",
   "Table": {
     "No": "Order No.",
     "address": "Address",

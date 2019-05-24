@@ -10,19 +10,50 @@
             (chartClick)="chartClicked($event)"></canvas>
   </div>
   <list-customers-in-debt></list-customers-in-debt>
-  <div class="col-md-12" *ngIf="check == 1 && !loading">
-    <div>
-      <div>
+  <div class="col-md-12" style="margin-top: 15px;" *ngIf="check == 1 && !loading">
+    <ul class="nav nav-tabs">
+      <li class="active"><a data-toggle="tab" data-target="#home">{{ '1_year' | translate}}</a></li>
+      <li><a data-toggle="tab" data-target="#menu1">{{ '1_month' | translate}}</a></li>
+      <li><a data-toggle="tab" data-target="#menu2">{{ '1_week' | translate}}</a></li>
+    </ul>
+    <div class="tab-content">
+      <div id="home" class="tab-pane fade in active">
+        <div>
+          <canvas baseChart
+                  [datasets]="barChartData"
+                  [labels]="barChartLabels"
+                  [options]="barChartOptions"
+                  [legend]="barChartLegend"
+                  [chartType]="barChartType"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)">
+          </canvas>
+        </div>
+      </div>
+      <div id="menu1" class="tab-pane fade">
         <canvas baseChart
-                [datasets]="barChartData"
-                [labels]="barChartLabels"
+                [datasets]="barChartDataMonth"
+                [labels]="barChartLabelsMonth"
                 [options]="barChartOptions"
                 [legend]="barChartLegend"
                 [chartType]="barChartType"
-                (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)">
+        </canvas>
+      </div>
+      <div id="menu2" class="tab-pane fade">
+        <canvas baseChart
+                [datasets]="barChartDataWeek"
+                [labels]="barChartLabelsWeek"
+                [options]="barChartOptions"
+                [legend]="barChartLegend"
+                [chartType]="barChartType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)">
         </canvas>
       </div>
     </div>
+
   </div>
 </div>
 
