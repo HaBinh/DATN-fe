@@ -14,6 +14,7 @@ import { Observable } from "rxjs/Observable";
 import "rxjs/add/operator/map";
 import 'rxjs/add/operator/toPromise';
 import { Rate } from "../rate/rate.model";
+import {BestSellerModel} from "../products-best-seller/best-seller.model";
 @Injectable()
 export class ProductsService {
   private baseUrl = `${environment.token_auth_config.apiBase}`;
@@ -80,6 +81,15 @@ export class ProductsService {
     return this.http
       .delete(deleteUrl, { headers: this.headers })
       .map(res => res.json().message as any);
+  }
+
+
+  get_products_best_seller(): Observable<BestSellerModel[]> {
+    const uri = `${this.baseUrl}/products_best_seller.json`;
+    return this.http.get(uri, { headers: this.headers })
+      .map(res => res.json())
+      .map( res => res.products as BestSellerModel[]);
+
   }
 
   private handleError(error: any): Promise<any> {
