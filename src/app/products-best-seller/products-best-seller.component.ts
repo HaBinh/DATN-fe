@@ -25,7 +25,8 @@ export class ProductsBestSellerComponent implements OnInit {
       pagingType: "full_numbers",
       language: {
         url: getLangUrl()
-      }
+      },
+      order: []
     };
 
     this.getListBestSeller();
