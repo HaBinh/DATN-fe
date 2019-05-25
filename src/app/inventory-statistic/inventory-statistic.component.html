@@ -1,0 +1,30 @@
+<div id="main-product" class="col-md-12">
+
+  <h3>Hàng tồn kho</h3>
+
+  <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"
+        id="dynamic-table_wrapper"
+        class="table table-striped table-bordered
+        table-hover dataTable no-footer" cellspacing="0" width="100%">
+    <!-- <i *ngIf="loading" class="fa fa-spinner fa-pulse fa-3x fa-fw"></i> -->
+    <thead>
+      <tr>
+        <th><i class="ace-icon fa fa-user"></i>Tên hàng hóa</th>
+        <th><i>@</i> Code </th>
+        <th><i class="ace-icon fa fa-id-card-o"></i>Số lượng còn lại</th>
+        <th class="text-right">Giá nhập</th>
+        <th>Ngày nhập</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let inventory of listInventories">
+        <td>{{ inventory.name }}</td>
+        <td>{{ inventory.code }}</td>
+        <td>{{ inventory.quantity_left }}</td>
+        <td class="text-right">{{ inventory.imported_price | vnd }}</td>
+        <td>{{ getRelativeTime(inventory.created_at) }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
