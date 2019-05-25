@@ -144,7 +144,8 @@
     "discountedRateDefault": "TSCK mặc định",
     "discountedRateCategory": "TSCK theo nhóm",
     "user-management": "Quản lý nhân viên",
-    "return-invoice": "Trả hóa đơn"
+    "return-invoice": "Trả hóa đơn",
+    "statistic": "Thống kê"
   },
 
   "store": {

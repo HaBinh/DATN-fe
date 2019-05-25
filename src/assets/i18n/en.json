@@ -144,7 +144,8 @@
     "discountedRateDefault": "By Default",
     "discountedRateCategory": "By Category",
     "user-management": "Users Management",
-    "return-invoice": "Return invoice"
+    "return-invoice": "Return invoice",
+    "statistic": "Statistic"
   },
   "category": {
     "title": "Categories",
