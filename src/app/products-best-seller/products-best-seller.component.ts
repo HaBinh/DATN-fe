@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {BestSellerModel} from "./best-seller.model";
 import {Subject} from "rxjs/Subject";
 import {ProductsService} from "../core/products.service";
@@ -10,24 +10,25 @@ import {getLangUrl} from "../shared/get_url_lang";
   styleUrls: ['./products-best-seller.component.css']
 })
 export class ProductsBestSellerComponent implements OnInit {
-   dtOptions: DataTables.Settings = {};
+  dtOptions: DataTables.Settings = {};
   dtTrigger: Subject<any> = new Subject();
   listBestSeller: BestSellerModel[] = [];
 
 
   constructor(
     private productService: ProductsService,
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
-     this.dtOptions = {
+    this.dtOptions = {
       pagingType: "full_numbers",
       language: {
         url: getLangUrl()
       }
     };
 
-     this.getListBestSeller();
+    this.getListBestSeller();
   }
 
   getListBestSeller() {
