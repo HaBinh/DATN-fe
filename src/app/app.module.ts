@@ -41,6 +41,7 @@ import { LoadingBarHttpModule } from '@ngx-loading-bar/http';
 import { CategoryDiscountComponent } from './category-discount/category-discount.component';
 import { InventoryStatisticComponent } from './inventory-statistic/inventory-statistic.component';
 import { ProductsBestSellerComponent } from './products-best-seller/products-best-seller.component';
+import { StatisticComponent } from './statistic/statistic.component';
 // import { BsModalModule } from "ng2-bs3-modal";
 
 
@@ -65,7 +66,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     RateComponent,
     CategoryDiscountComponent,
     InventoryStatisticComponent,
-    ProductsBestSellerComponent
+    ProductsBestSellerComponent,
+    StatisticComponent
   ],
   imports: [
     BrowserAnimationsModule,

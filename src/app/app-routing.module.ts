@@ -14,6 +14,7 @@ import { NewOrderComponent }    from './order/new-order/new-order.component';
 import { RateComponent } from "./rate/rate.component";
 import { CategoryDiscountComponent } from './category-discount/category-discount.component'
 import { ReturnOrderComponent } from './order/return-order/return-order.component';
+import {StatisticComponent} from "./statistic/statistic.component";
 const routes: Routes = [
   {
     path: "",
@@ -27,6 +28,11 @@ const routes: Routes = [
   {
     path: "dashboard",
     component: DashboardComponent,
+    canActivate: [LoggedInGuard, ManagementGuard]
+  },
+  {
+    path: "statistic",
+    component: StatisticComponent,
     canActivate: [LoggedInGuard, ManagementGuard]
   },
   {
