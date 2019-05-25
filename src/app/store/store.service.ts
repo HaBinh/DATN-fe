@@ -58,9 +58,9 @@ export class StoreService {
   }
 
   get_inventory_statisitc(): Observable<Inventory[]> {
-    const uri = `${this.baseUrl}/get_inventory_statistics`;
+    const uri = `${this.baseUrl}/get_inventory_statistics.json`;
     return this.http.get(uri, { headers: this.headers })
-                .map((res: any) => res.imports as Inventory[])
+                .map((res: any) => res.json().imports as Inventory[]);
   }
 
   private handleError(error: any): Promise<any> {
