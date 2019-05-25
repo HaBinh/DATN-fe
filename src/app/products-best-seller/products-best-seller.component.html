@@ -1,3 +1,28 @@
-<p>
-  products-best-seller works!
-</p>
+<div id="main-product" class="col-md-12">
+
+  <h3>Thống kê hàng bán chạy trong tháng</h3>
+
+  <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"
+        id="dynamic-table_wrapper"
+        class="table table-striped table-bordered
+        table-hover dataTable no-footer" cellspacing="0" width="100%">
+    <!-- <i *ngIf="loading" class="fa fa-spinner fa-pulse fa-3x fa-fw"></i> -->
+    <thead>
+      <tr>
+        <th><i class="ace-icon fa fa-user"></i>Tên hàng hóa</th>
+        <th><i>@</i> Code </th>
+        <th><i class="ace-icon fa fa-id-card-o"></i>Số lượng đã bán</th>
+        <th class="text-right">Tổng giá trí bán ra</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let seller of listBestSeller">
+        <td>{{ seller.name }}</td>
+        <td>{{ seller.code }}</td>
+        <td>{{ seller.quantity }}</td>
+        <td class="text-right">{{ seller.total_amount | vnd }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
