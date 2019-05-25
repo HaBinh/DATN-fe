@@ -26,6 +26,17 @@ export class ProductsBestSellerComponent implements OnInit {
         url: getLangUrl()
       }
     };
+
+     this.getListBestSeller();
   }
+
+  getListBestSeller() {
+    this.productService.get_products_best_seller()
+      .subscribe(list => {
+        this.listBestSeller = list;
+        this.dtTrigger.next();
+      });
+  }
+
 
 }
