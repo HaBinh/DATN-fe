@@ -25,7 +25,8 @@ export class InventoryStatisticComponent implements OnInit {
       pagingType: "full_numbers",
       language: {
         url: getLangUrl()
-      }
+      },
+      ordering: false
     };
     this.getInventory();
   }
