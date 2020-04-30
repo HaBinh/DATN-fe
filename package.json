@@ -47,7 +47,7 @@
     "core-js": "^2.4.1",
     "datatables.net-dt": "^1.10.16",
     "express": "^4.15.4",
-    "jquery": "^3.2.1",
+    "jquery": "^3.5.0",
     "lodash": "^4.17.4",
     "moment": "^2.24.0",
     "ng-click-outside": "^3.2.0",
